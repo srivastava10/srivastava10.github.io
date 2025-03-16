@@ -1,362 +1,1433 @@
-<!doctype html>
-<html class="no-js" lang="en">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanical Engineer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
 
-    <head>
-        <!-- meta data -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #f5f5f5;
+            --accent: #2a2a2a;
+            --text: #333333;
+            --light-bg: rgba(255, 255, 255, 0.8);
+            --white: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.15);
+            --grid-size: 20px;
+            --glow: rgba(0, 0, 0, 0.3);
+        }
 
-        <!--font-family-->
-		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=devanagari,latin-ext" rel="stylesheet">
-        
-        <!-- title of site -->
-        <title>Portfolio</title>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Space Mono', monospace;
+            cursor: none !important;
+        }
 
-        <!-- For favicon png -->
-		<link rel="shortcut icon" type="image/icon" href="assets/logo/favicon.png"/>
-       
-        <!--font-awesome.min.css-->
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
 
-		<!--flat icon css-->
-		<link rel="stylesheet" href="assets/css/flaticon.css">
+        @keyframes blueprint {
+            0% { background-position: 0 0; }
+            100% { background-position: var(--grid-size) var(--grid-size); }
+        }
 
-		<!--animate.css-->
-        <link rel="stylesheet" href="assets/css/animate.css">
+        @keyframes measure {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
 
-        <!--owl.carousel.css-->
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-		<link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
-		
-        <!--bootstrap.min.css-->
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-		
-		<!-- bootsnav -->
-		<link rel="stylesheet" href="assets/css/bootsnav.css" >	
-        
-        <!--style.css-->
-        <link rel="stylesheet" href="assets/css/style.css">
-        
-        <!--responsive.css-->
-        <link rel="stylesheet" href="assets/css/responsive.css">
-        
-		
-        <!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-    </head>
-	
-	<body>
-		
-		WEBSITE STILL IN DEVELOPEMENT!!!!!!
-		<!-- top-area Start -->
-		<header class="top-area">
-			<div class="header-area">
-				<!-- Start Navigation -->
-			    <nav class="navbar navbar-default bootsnav navbar-fixed dark no-background">
+        body {
+            line-height: 1.6;
+            background: linear-gradient(-45deg, #ffffff, #f5f5f5, #e8e8e8, #f0f0f0);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--text);
+            position: relative;
+            overflow-x: hidden;
+        }
 
-			        <div class="container">
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(1px 1px at 25% 25%, var(--accent) 0%, transparent 100%),
+                radial-gradient(1px 1px at 50% 50%, var(--accent) 0%, transparent 100%),
+                radial-gradient(2px 2px at 75% 75%, var(--accent) 0%, transparent 100%),
+                radial-gradient(2px 2px at 100% 100%, var(--accent) 0%, transparent 100%);
+            background-size: 200px 200px;
+            animation: space 300s linear infinite;
+            opacity: 0.05;
+            z-index: -1;
+        }
 
-			            <!-- Start Header Navigation -->
-			            <div class="navbar-header">
-			                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-			                    <i class="fa fa-bars"></i>
-			                </button>
-			                <a class="navbar-brand" style="color:black;">Gaurav Srivastava</a>
-			            </div><!--/.navbar-header-->
-			            <!-- End Header Navigation -->
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
 
-			            <!-- Collect the nav links, forms, and other content for toggling -->
-			            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
-			                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-			                <li class=" smooth-menu active"></li>
-			                    <li class=" smooth-menu"><a href="#education">education</a></li>
-			                    <li class="smooth-menu"><a href="#portfolio">portfolio</a></li>
-			                </ul><!--/.nav -->
-			            </div><!-- /.navbar-collapse -->
-			        </div><!--/.container-->
-			    </nav><!--/nav-->
-			    <!-- End Navigation -->
-			</div><!--/.header-area-->
+        header {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 100px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
 
-		    <div class="clearfix"></div>
+        header::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle at center, transparent 30%, var(--accent) 70%);
+            filter: blur(20px);
+            opacity: 0.05;
+            animation: rotate 20s linear infinite;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
-		</header><!-- /.top-area-->
-		<!-- top-area End -->
-	
-		<!--welcome-hero start -->
-		<section id="welcome-hero" class="welcome-hero">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<div class="header-text">
-							<h2>Hello <span style="color:white;">,</span> I am <br> Gaurav <br> Srivastava <span style="color:white;">.</span>   </h2>
-							<p>"Engineering is the professional art of applying science to the optimum conversion of natural resources to the benefit of man." — Ralph J. Smith</p>
-						</div><!--/.header-text-->
-					</div><!--/.col-->
-				</div><!-- /.row-->
-			</div><!-- /.container-->
+        header h1 {
+            font-size: 2.8em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            position: relative;
+        }
 
-		</section><!--/.welcome-hero-->
-		<!--welcome-hero end -->
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
 
-		<!--about start -->
-		<section id="about" class="about">
-			<div class="section-heading text-center">
-				<h2>about me</h2>
-			</div>
-			<div class="container">
-				<div class="about-content">
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="single-about-txt">
-								<h3>
-									Mechanical Engineering, Reinforcement Learning And A World Of Dreams Is What I Crave For !!!
-								</h3>
-								<p>
-									Hello! I'm currently a Mechanical Engineering student at the National Institute of Technology, Hamirpur. My journey into engineering began with a deep fascination for how things work, from the smallest machine components to large, complex systems. I am motivated to dive deeper into the field of Mechanical Engineering, where I am now developing a solid foundation in core engineering principles. My passion extends beyond academics, as I am also eager to explore and contribute to real-world applications through hands-on projects and internships. With an interest in learning more about sustainable technologies, simulations, I look forward to building a strong skill set to make a meaningful impact in the engineering world.
-								</p>
-								<div class="row">
-									<div class="col-sm-4">
-										<div class="single-about-add-info">
-											<h3>email</h3>
-											<p>class.gauravsri@gmail.com</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-offset-1 col-sm-5">
-							<div class="single-about-img">
-								<img src="assets/images/about/profile_image.jpg" alt="profile_image">
-								<div class="about-list-icon">
-									<ul>
-										
-										
-										
-										<li>
-											<a href="https://www.linkedin.com/in/gaurav-srivastava-b2061a1b1/">
-												<i  class="fa fa-linkedin" aria-hidden="true"></i>
-											</a>
-										</li><!-- / li -->
-										
-										
-									</ul><!-- / ul -->
-								</div><!-- /.about-list-icon -->
+        nav {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
 
-							</div>
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
 
-						</div>
-					</div>
-				</div>
-			</div>
-		</section><!--/.about-->
-		<!--about end -->
-		
-		<!--education start -->
-		<section id="education" class="education">
-			<div class="section-heading text-center">
-				<h2>education</h2>
-			</div>
-			<div class="container">
-				<div class="education-horizontal-timeline">
-					<div class="row">
-						<div class="col-sm-4">
-							<div class="single-horizontal-timeline">
-								<div class="experience-time">
-									<h2>2020 - 2022</h2>
-									<h3>Grade 10, ICSE</h3>
-									<h4>98.6%</h4>
-								</div><!--/.experience-time-->
-								<div class="timeline-horizontal-border">
-									<i class="fa fa-circle" aria-hidden="true"></i>
-									<span class="single-timeline-horizontal"></span>
-								</div>
-								<div class="timeline">
-									<div class="timeline-content">
-										<h4 class="title">
-											Seth M.R. Jaipuria School
-										</h4>
-										<h5>Lucknow, India</h5>
-									</div><!--/.timeline-content-->
-								</div><!--/.timeline-->
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="single-horizontal-timeline">
-								<div class="experience-time">
-									<h2>2022 - 2024</h2>
-									<h3>Grade 12, ISC</h3>
-									<h4>98.5%</h4>
-								</div><!--/.experience-time-->
-								<div class="timeline-horizontal-border">
-									<i class="fa fa-circle" aria-hidden="true"></i>
-									<span class="single-timeline-horizontal"></span>
-								</div>
-								<div class="timeline">
-									<div class="timeline-content">
-										<h4 class="title">
-											Seth M.R. Jaipuria School
-										</h4>
-										<h5>Lucknow, India</h5>
-									</div><!--/.timeline-content-->
-								</div><!--/.timeline-->
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="single-horizontal-timeline">
-								<div class="experience-time">
-									<h2>2024-2028</h2>
-									<h3>Bachelor <span>of </span> Mechanical Engineering</h3>
-									<h4>--</h4>
-								</div><!--/.experience-time-->
-								<div class="timeline-horizontal-border">
-									<i class="fa fa-circle" aria-hidden="true"></i>
-									<span class="single-timeline-horizontal spacial-horizontal-line
-									"></span>
-								</div>
-								<div class="timeline">
-									<div class="timeline-content">
-										<h4 class="title">
-											National Institute Of Technology, Hamirpur
-										</h4>
-										<h5>Himachal Pradesh, India</h5>
-									</div><!--/.timeline-content-->
-								</div><!--/.timeline-->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            text-shadow: 0 0 5px var(--glow);
+        }
 
-		</section><!--/.education-->
-		<!--education end -->
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
 
-		
+        nav a:hover::before {
+            transform: scaleX(1);
+        }
 
-		
+        section {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            margin: 40px 0;
+            padding: 40px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            color: var(--text);
+        }
 
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: repeating-linear-gradient(90deg,
+                var(--accent) 0px,
+                var(--accent) 10px,
+                transparent 10px,
+                transparent 20px);
+            animation: measure 1s ease-out;
+        }
 
-		<!--portfolio start -->
-		<section id="portfolio" class="portfolio">
-			<div class="portfolio-details">
-				<div class="section-heading text-center">
-					<h2>portfolio</h2>
-				</div>
-				<div class="container">
-					<div class="portfolio-content">
-						<div class="isotope">
-							<div class="row">
+        .section-title {
+            color: var(--accent);
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            text-shadow: 0 0 10px var(--glow);
+        }
 
-								<div class="col-sm-4">
-									<div class="item">
-										<img src="assets/images/portfolio/p1.jpg" alt="portfolio image"/>
-										<div class="isotope-overlay">
-											<a href="mechanical.html">
-												Mechanical Design
-											</a>
-										</div><!-- /.isotope-overlay -->
-									</div><!-- /.item -->
-									<div class="item">
-										<img src="assets/images/portfolio/p2.jpg" alt="portfolio image"/>
-										<div class="isotope-overlay">
-											<a href="reinforcement.html">
-												Reinforcement Learning
-											</a>
-										</div><!-- /.isotope-overlay -->
-									</div><!-- /.item -->
-								</div><!-- /.col -->
+        .section-title::before {
+            content: '🔧';
+            margin-right: 10px;
+            animation: swingTool 3s ease infinite;
+            display: inline-block;
+        }
 
-								<div class="col-sm-4">
-									<div class="item">
-										<img src="assets/images/portfolio/p3.jpg" alt="portfolio image"/>
-										<div class="isotope-overlay">
-											<a href="art.html">
-												Art And Literature
-											</a>
-										</div><!-- /.isotope-overlay -->
-									</div><!-- /.item -->
-								</div><!-- /.col -->
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            align-items: start;
+        }
 
-								<div class="col-sm-4">
-									<div class="item">
-										<img src="assets/images/portfolio/p4.jpg" alt="portfolio image"/>
-										<div class="isotope-overlay">
-											<a href="quant_phy.html">
-												Cryptography
-											</a>
-										</div><!-- /.isotope-overlay -->
-									</div><!-- /.item -->
-									<div class="item">
-										<img src="assets/images/portfolio/p5.jpg" alt="portfolio image"/>
-										<div class="isotope-overlay">
-											<a href="project.html">
-												Projects
-											</a>
-										</div><!-- /.isotope-overlay -->
-									</div><!-- /.item -->
-								</div><!-- /.col -->
-							</div><!-- /.row -->
-						</div><!--/.isotope-->
-					</div><!--/.gallery-content-->
-				</div><!--/.container-->
-			</div><!--/.portfolio-details-->
+        .about-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: var(--text);
+        }
 
-		</section><!--/.portfolio-->
-		<!--portfolio end -->
+        .profile-picture {
+            width: 300px;
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 20px var(--glow);
+            border: 2px solid var(--accent);
+        }
 
-		<!--footer-copyright start-->
-		
+        .profile-picture::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid var(--accent);
+            border-radius: 15px;
+            background: repeating-linear-gradient(45deg,
+                transparent 0px,
+                transparent 10px,
+                rgba(0, 102, 204, 0.1) 10px,
+                rgba(0, 102, 204, 0.1) 20px);
+            z-index: 1;
+        }
 
-			<div id="scroll-Top">
-				<div class="return-to-top">
-					<i class="fa fa-angle-up " id="scroll-top" ></i>
-				</div>
-				
-			</div><!--/.scroll-Top-->
-			
-        </footer>
-		
-		
+        .profile-picture::after {
+            content: '⚙️';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 30px;
+            animation: rotate 8s linear infinite;
+            opacity: 0.2;
+            z-index: 2;
+        }
 
-		<script src="assets/js/jquery.js"></script>
-        
-        <!--modernizr.min.js-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-		
-		<!--bootstrap.min.js-->
-        <script src="assets/js/bootstrap.min.js"></script>
-		
-		<!-- bootsnav js -->
-		<script src="assets/js/bootsnav.js"></script>
-		
-		<!-- jquery.sticky.js -->
-		<script src="assets/js/jquery.sticky.js"></script>
-		
-		<!-- for progress bar start-->
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(50%) brightness(1.2);
+            transition: filter 0.3s ease;
+        }
 
-		<!-- progressbar js -->
-		<script src="assets/js/progressbar.js"></script>
+        .profile-picture:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
 
-		<!-- appear js -->
-		<script src="assets/js/jquery.appear.js"></script>
+        .education-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            border-left: 4px solid var(--accent);
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+            color: var(--text);
+        }
 
-		<!-- for progress bar end -->
+        .education-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 0 20px var(--glow);
+        }
 
-		<!--owl.carousel.js-->
-        <script src="assets/js/owl.carousel.min.js"></script>
+        .education-item h3 {
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
 
+        .education-item p {
+            color: var(--text);
+            opacity: 0.8;
+        }
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-		
-        
-        <!--Custom JS-->
-        <script src="assets/js/custom.js"></script>
-        
-    </body>
-	
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .project-card, .blog-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            color: var(--text);
+        }
+
+        .project-card::before, .blog-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(45deg, transparent 48%, var(--accent) 49%, var(--accent) 51%, transparent 52%) 0 0 / 20px 20px,
+                linear-gradient(-45deg, transparent 48%, var(--accent) 49%, var(--accent) 51%, transparent 52%) 0 0 / 20px 20px;
+            opacity: 0.1;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover::before, .blog-card:hover::after {
+            opacity: 0.2;
+        }
+
+        .project-card:hover, .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+        }
+
+        .project-card h3, .blog-card h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .blog-card a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 15px;
+            transition: color 0.3s ease;
+            position: relative;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-card a:hover {
+            color: var(--accent);
+            text-shadow: 0 0 10px var(--glow);
+        }
+
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid var(--accent);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+            opacity: 0.2;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .hidden {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-links::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: repeating-linear-gradient(90deg,
+                var(--accent) 0px,
+                var(--accent) 10px,
+                transparent 10px,
+                transparent 20px);
+            animation: measure 2s linear infinite;
+        }
+
+        .social-links a {
+            color: var(--accent);
+            font-size: 22px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: var(--white);
+            border: 2px solid var(--accent);
+            box-shadow: 0 2px 10px var(--shadow);
+            overflow: hidden;
+        }
+
+        .social-links a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(45deg,
+                transparent 0px,
+                transparent 10px,
+                rgba(0, 0, 0, 0.05) 10px,
+                rgba(0, 0, 0, 0.05) 20px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: var(--accent);
+            color: var(--white);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 50%, rgba(0, 0, 0, 0.05) 100%);
+            opacity: 0;
+            transition: all 0.3s ease;
+            transform: scale(0.5);
+        }
+
+        .social-links a:hover::before {
+            opacity: 1;
+            transform: scale(1.5);
+        }
+
+        .social-links i {
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover i {
+            animation: iconPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes iconPop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .project-docs {
+            margin-top: 10px;
+            padding-top: 15px;
+            border-top: 1px solid var(--light-bg);
+        }
+
+        .pdf-preview {
+            width: 100%;
+            height: 200px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .doc-upload {
+            display: none;
+        }
+
+        .upload-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            background: var(--light-bg);
+            color: var(--text);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .upload-btn:hover {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .doc-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .doc-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px 0;
+        }
+
+        .doc-list i {
+            color: var(--accent);
+        }
+
+        .view-pdf-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 10px;
+            background: var(--white);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 5px;
+            font-size: 0.9em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .view-pdf-btn:hover {
+            background: var(--accent);
+            color: var(--primary);
+            box-shadow: 0 0 15px var(--glow);
+        }
+
+        /* Modal styles for PDF viewer */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1100;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 90%;
+            height: 90%;
+            margin: 2% auto;
+            background: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary);
+            z-index: 1110;
+        }
+
+        .modal iframe {
+            width: 100%;
+            height: calc(100% - 40px);
+            border: none;
+            margin-top: 20px;
+        }
+
+        /* Custom Cursor and Ripple Styles */
+        .custom-cursor {
+            position: fixed;
+            width: 32px;
+            height: 32px;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease;
+            mix-blend-mode: difference;
+        }
+
+        .custom-cursor::before {
+            content: '⚙️';
+            font-size: 24px;
+            animation: rotateCursor 2s linear infinite;
+        }
+
+        .custom-cursor.clicking {
+            transform: translate(-50%, -50%) scale(0.8);
+        }
+
+        .custom-cursor.hovering {
+            transform: translate(-50%, -50%) scale(1.2);
+            filter: brightness(1.2);
+        }
+
+        /* Remove previous cursor styles */
+        [data-cursor="pointer"],
+        a,
+        button,
+        .project-card,
+        .blog-card,
+        .education-item {
+            cursor: none !important;
+        }
+
+        /* Ripple Effect Styles */
+        .ripple {
+            position: fixed;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            mix-blend-mode: multiply;
+            box-shadow: 0 0 10px var(--glow);
+        }
+
+        @keyframes rippleEffect {
+            0% {
+                width: 0px;
+                height: 0px;
+                opacity: 0.5;
+                border-width: 2px;
+            }
+            100% {
+                width: 100px;
+                height: 100px;
+                opacity: 0;
+                border-width: 1px;
+            }
+        }
+
+        .gear-ripple {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            font-size: 24px;
+            color: var(--accent);
+            opacity: 0;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes gearSpin {
+            0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); opacity: 0.5; }
+            100% { transform: translate(-50%, -50%) rotate(360deg) scale(2); opacity: 0; }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: none;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        .particle::before {
+            content: '⚙️';
+            animation: rotate 4s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Interactive Grid */
+        .grid-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Space background animation */
+        @keyframes space {
+            0% { background-position: 0 0; }
+            100% { background-position: 10000px 5000px; }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Additional space effects */
+        .space-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--accent);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: twinkle 3s infinite;
+        }
+
+        /* Text effects */
+        p, h1, h2, h3 {
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Button styling */
+        .project-report-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .project-report-btn:hover {
+            background: var(--accent);
+            color: var(--primary);
+            box-shadow: 0 0 15px var(--glow);
+        }
+
+        @keyframes rotateCursor {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        @keyframes swingTool {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-20deg); }
+            75% { transform: rotate(20deg); }
+        }
+
+        /* Physics Equations Background */
+        .equations-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .equation {
+            position: absolute;
+            font-family: 'Times New Roman', serif;
+            color: rgba(0, 0, 0, 0.4);
+            font-size: 28px;
+            transition: all 0.5s ease;
+            pointer-events: auto;
+            cursor: none !important;
+            user-select: none;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 10px;
+            border-radius: 5px;
+            will-change: transform;
+            animation: floatEquation var(--float-duration) ease-in-out infinite;
+            animation-delay: var(--float-delay);
+        }
+
+        .equation:hover {
+            color: rgba(0, 0, 0, 0.8);
+            transform: scale(1.2) rotate(0deg) !important;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 1;
+        }
+
+        @keyframes floatEquation {
+            0% { 
+                transform: translate(0, 0) rotate(0deg) scale(1); 
+            }
+            25% { 
+                transform: translate(30px, -20px) rotate(5deg) scale(1.05); 
+            }
+            50% { 
+                transform: translate(-20px, 30px) rotate(-3deg) scale(0.95); 
+            }
+            75% { 
+                transform: translate(20px, 20px) rotate(3deg) scale(1.02); 
+            }
+            100% { 
+                transform: translate(0, 0) rotate(0deg) scale(1); 
+            }
+        }
+
+        /* Redirect Modal Styles */
+        .redirect-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .redirect-content {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .redirect-content h3 {
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .redirect-content p {
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .redirect-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--accent);
+            border-top: 4px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        .redirect-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .redirect-button {
+            padding: 8px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .redirect-continue {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .redirect-cancel {
+            background: #f0f0f0;
+            color: var(--text);
+        }
+
+        .redirect-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Add custom cursor element -->
+    <div class="custom-cursor"></div>
+
+    <div class="particles"></div>
+    <div class="grid-overlay"></div>
+    <div class="space-overlay"></div>
+
+    <div class="equations-background"></div>
+
+    <!-- Add redirect modal -->
+    <div class="redirect-modal" id="redirectModal">
+        <div class="redirect-content">
+            <div class="redirect-spinner"></div>
+            <h3>External Link</h3>
+            <p>You are being redirected to an external website.</p>
+            <div class="redirect-buttons">
+                <button onclick="continueRedirect()" class="redirect-button redirect-continue">Continue</button>
+                <button onclick="cancelRedirect()" class="redirect-button redirect-cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Custom cursor and ripple effects
+        const cursor = document.querySelector('.custom-cursor');
+        let isMoving = false;
+        let moveTimeout;
+
+        function updateCursor(e) {
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+            
+            // Update cursor position with smooth movement
+            cursor.style.left = `${mouseX}px`;
+            cursor.style.top = `${mouseY}px`;
+
+            // Create ripple effect on movement
+            if (!isMoving) {
+                isMoving = true;
+                createRipple(mouseX, mouseY, false);
+            }
+
+            clearTimeout(moveTimeout);
+            moveTimeout = setTimeout(() => {
+                isMoving = false;
+            }, 100);
+        }
+
+        function createRipple(x, y, isClick = false) {
+            // Create main ripple
+            const ripple = document.createElement('div');
+            ripple.className = 'ripple';
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+            document.body.appendChild(ripple);
+
+            // Create gear ripple for mechanical effect
+            if (isClick) {
+                const gear = document.createElement('div');
+                gear.className = 'gear-ripple';
+                gear.innerHTML = '⚙️';
+                gear.style.left = `${x}px`;
+                gear.style.top = `${y}px`;
+                gear.style.animation = 'gearSpin 1s ease-out forwards';
+                document.body.appendChild(gear);
+
+                setTimeout(() => gear.remove(), 1000);
+            }
+
+            // Animate and remove ripple
+            ripple.style.animation = `rippleEffect ${isClick ? '1s' : '0.6s'} ease-out forwards`;
+            setTimeout(() => ripple.remove(), isClick ? 1000 : 600);
+        }
+
+        // Mouse event handlers
+        window.addEventListener('mousemove', updateCursor);
+
+        window.addEventListener('mousedown', () => {
+            cursor.classList.add('clicking');
+        });
+
+        window.addEventListener('mouseup', () => {
+            cursor.classList.remove('clicking');
+        });
+
+        window.addEventListener('click', (e) => {
+            createRipple(e.clientX, e.clientY, true);
+        });
+
+        // Handle interactive elements
+        document.querySelectorAll('a, button, [data-cursor="pointer"], [data-cursor="hover"]').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                cursor.classList.add('hovering');
+                const rect = item.getBoundingClientRect();
+                createRipple(rect.left + rect.width / 2, rect.top + rect.height / 2);
+            });
+
+            item.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hovering');
+            });
+        });
+
+        // Hide cursor when leaving window
+        document.addEventListener('mouseleave', () => {
+            cursor.style.opacity = '0';
+        });
+
+        document.addEventListener('mouseenter', () => {
+            cursor.style.opacity = '1';
+        });
+
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach((section) => {
+            section.classList.add('hidden');
+            observer.observe(section);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                targetSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar shadow on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.boxShadow = '0 2px 15px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // PDF handling functions
+        function handleFileUpload(input, projectId) {
+            const file = input.files[0];
+            if (file && file.type === 'application/pdf') {
+                const docList = document.getElementById(`doc-list-${projectId}`);
+                const fileURL = URL.createObjectURL(file);
+                
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <i class="fas fa-file-pdf"></i>
+                    <span>${file.name}</span>
+                    <button class="view-pdf-btn" onclick="viewPDF('${fileURL}')">
+                        <i class="fas fa-eye"></i> View
+                    </button>
+                `;
+                
+                docList.appendChild(listItem);
+            } else {
+                alert('Please upload a PDF file');
+            }
+        }
+
+        function viewPDF(url) {
+            const modal = document.getElementById('pdfModal');
+            const viewer = document.getElementById('pdfViewer');
+            viewer.src = url;
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('pdfModal');
+            modal.style.display = 'none';
+            document.getElementById('pdfViewer').src = '';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('pdfModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            const particleCount = 20;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize particles
+        createParticles();
+
+        // Parallax effect for grid
+        document.addEventListener('mousemove', (e) => {
+            const grid = document.querySelector('.grid-overlay');
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            grid.style.transform = `translate(${mouseX * 20}px, ${mouseY * 20}px)`;
+        });
+
+        // Create random stars
+        function createStars() {
+            const space = document.querySelector('.space-overlay');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 3}s`;
+                space.appendChild(star);
+            }
+        }
+
+        // Initialize stars
+        createStars();
+
+        // Add this after your existing script code
+        function createEquations() {
+            const equations = [
+                "∂ρ/∂t + ∇·(ρv) = 0",
+                "P₁V₁/T₁ = P₂V₂/T₂",
+                "Q = mc∆T",
+                "dS = δQ/T",
+                "P₁/ρ₁ + v₁²/2 + gz₁ = P₂/ρ₂ + v₂²/2 + gz₂",
+                "μ(∂²u/∂y²) = ∂P/∂x",
+                "ΔG = ΔH - TΔS",
+                "Re = ρvD/μ",
+                "Cp = (∂H/∂T)ₚ",
+                "Q̇ = hA(T₁ - T₂)",
+                "Ma = v/c",
+                "dW = PdV",
+                "η = 1 - T₂/T₁",
+                "τ = μ(du/dy)",
+                "ṁ = ρAv"
+            ];
+
+            const container = document.querySelector('.equations-background');
+            container.innerHTML = '';
+            const numEquations = 25;
+
+            for (let i = 0; i < numEquations; i++) {
+                const equation = document.createElement('div');
+                equation.className = 'equation';
+                equation.textContent = equations[Math.floor(Math.random() * equations.length)];
+                
+                // Random position with padding from edges
+                const left = 10 + Math.random() * 80; // Keep away from edges
+                const top = 10 + Math.random() * 80;
+                const rotation = Math.random() * 360;
+                const size = 24 + Math.random() * 16;
+                
+                // Random animation duration and delay
+                const duration = 15 + Math.random() * 20;
+                const delay = Math.random() * -20;
+                
+                equation.style.cssText = `
+                    left: ${left}%;
+                    top: ${top}%;
+                    font-size: ${size}px;
+                    opacity: 0.4;
+                    --float-duration: ${duration}s;
+                    --float-delay: ${delay}s;
+                `;
+                
+                container.appendChild(equation);
+
+                // Add subtle continuous movement
+                let startTime = Date.now();
+                function moveEquation() {
+                    const time = (Date.now() - startTime) / 1000;
+                    const xOffset = Math.sin(time * 0.5) * 10;
+                    const yOffset = Math.cos(time * 0.3) * 10;
+                    equation.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+                    requestAnimationFrame(moveEquation);
+                }
+                moveEquation();
+            }
+        }
+
+        // Call createEquations immediately
+        createEquations();
+
+        // Refresh equations less frequently to maintain smooth animations
+        setInterval(createEquations, 45000); // Refresh every 45 seconds
+
+        // Enhanced parallax effect for equations
+        document.addEventListener('mousemove', (e) => {
+            const equations = document.querySelectorAll('.equation');
+            const mouseX = (e.clientX - window.innerWidth / 2) / window.innerWidth;
+            const mouseY = (e.clientY - window.innerHeight / 2) / window.innerHeight;
+            
+            equations.forEach(eq => {
+                const depth = parseFloat(eq.style.fontSize) / 36;
+                const moveX = mouseX * 50 * depth;
+                const moveY = mouseY * 50 * depth;
+                const currentTransform = eq.style.transform || '';
+                const baseTransform = currentTransform.split('translate')[0];
+                eq.style.transform = `${baseTransform} translate(${moveX}px, ${moveY}px)`;
+            });
+        });
+
+        // Redirect handling function
+        let redirectUrl = '';
+        let redirectTimeout = null;
+
+        function handleRedirect(event, url) {
+            event.preventDefault();
+            redirectUrl = url;
+            const modal = document.getElementById('redirectModal');
+            modal.style.display = 'flex';
+        }
+
+        function continueRedirect() {
+            window.open(redirectUrl, '_blank');
+            cancelRedirect();
+        }
+
+        function cancelRedirect() {
+            const modal = document.getElementById('redirectModal');
+            modal.style.display = 'none';
+            redirectUrl = '';
+            if (redirectTimeout) {
+                clearTimeout(redirectTimeout);
+                redirectTimeout = null;
+            }
+        }
+
+        // Close redirect modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('redirectModal');
+            if (event.target == modal) {
+                cancelRedirect();
+            }
+        }
+    </script>
+
+    <header>
+        <div class="container">
+            <h1 class="fade-in">Gaurav Srivastava</h1>
+            <p class="fade-in">Mechanical Engineering Student</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blog">Blog</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-container">
+                <div class="about-text">
+                    <p>Hi, I'm Gaurav Srivastava, a Mechanical Engineering student at NIT Hamirpur with a deep passion for Mechanical Engineering, Physics and Computer Science. I'm constantly exploring the intersection of these fields, aiming to contribute to cutting-edge research and technological advancements.
+
+                        Beyond academics, I'm interested in Art, Blogging and Music. I pursue my free hours with an empty canvas and open mind. I like writing technical and non-technical blogs. I am also a beginner flautist.</p>
+                </div>
+                <div class="profile-picture-container">
+                    <div class="profile-picture">
+                        <img src="Image.jpg" alt="Profile Picture">
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/gaurav-srivastava-b2061a1b1/" target="_blank" title="LinkedIn" aria-label="Visit LinkedIn Profile">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/srivastava10" target="_blank" title="GitHub" aria-label="Visit GitHub Profile">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://medium.com/@class.gauravsri" target="_blank" title="Medium" aria-label="Visit Medium Blog">
+                            <i class="fab fa-medium-m"></i>
+                        </a>
+                        <a href="mailto:class.gauravsri@gmail.com" title="Email" aria-label="Send Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <h3>Bachelor of Technology in Mechanical Engineering</h3>
+                <p>National Institute of Technology, Hamirpur | 2024 - Present</p>
+                <p>CGPA: 9.8</p>
+            </div>
+            <div class="education-item">
+                <h3>Grade 12</h3>
+                <p>Seth M.R. Jaipuria School, Lucknow | 2022 - 2024</p>
+                <p>Percentage: 98.5%</p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-grid">
+                <div class="project-card" data-cursor="hover">
+                    <h3>Quantum Heat Engines</h3>
+                    <p>In this project, I have demonstrated the visualization of Classical Otto Cycle in MATLAB. 
+                        A Python Program to visualize a Two Level System having distinct particles and finally a model of a Quantum Otto Engine using Hydrogen Atom</p>
+                    <a href="quantum_heat_engine.html"  class="project-report-btn" data-cursor="pointer">
+                        <i class="fas fa-external-link-alt"></i> Access Report
+                    </a>
+                </div>
+                
+            </div>
+        </section>
+
+        <section id="blog">
+            <h2 class="section-title">Blog</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <h3>Quantum Heat Engines</h3>
+                    <p>Exploring the MATLAB and Python Visualizations ...</p>
+                    <a href="https://medium.com/@class.gauravsri/quantum-heat-engines-c543420acc43">Read More</a>
+                    </div>
+                <div class="blog-card">
+                    <h3>Computational Thinking</h3>
+                    <p>How Computational Thinking is the need of the hour...</p>
+                    <a href="https://medium.com/@class.gauravsri/quantum-heat-engines-c543420acc43">Read More</a>
+                    </div>
+                <div class="blog-card">
+                    <h3>Perspectives of Life</h3>
+                    <p>What do you want to be they ask....</p>
+                    <a href="https://medium.com/@class.gauravsri/quantum-heat-engines-c543420acc43">Read More</a>
+                    </div>
+            </div>
+        </section>
+
+        <!-- Modal for PDF viewer -->
+        <div class="modal" id="pdfModal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+                <iframe id="pdfViewer"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Gaurav Srivastava- Mechanical Engineering Portfolio</p>
+        </div>
+    </footer>
+</body>
 </html>
+
